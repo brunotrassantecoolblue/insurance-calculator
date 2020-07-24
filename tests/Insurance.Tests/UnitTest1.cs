@@ -37,6 +37,44 @@ namespace Insurance.Tests
                 actual: result.InsuranceValue
             );
         }
+
+        [Fact]
+        public void CalculateInsurance_GivenSalesPriceUnder500EurosAndIsDangerousType_ShouldAdd500EurosToInsuranceCost()
+        {
+            const float expectedInsuranceValue = 500;
+
+            var dto = new HomeController.InsuranceDto
+            {
+                ProductId = 2,
+            };
+            var sut = new HomeController();
+
+            var result = sut.CalculateInsurance(dto);
+
+            Assert.Equal(
+                expected: expectedInsuranceValue,
+                actual: result.InsuranceValue
+            );
+        }
+
+        [Fact]
+        public void CalculateInsurance_GivenSalesPriceBetween500And2000EurosAndIsDangerousType_ShouldAdd1500EurosToInsuranceCost()
+        {
+            const float expectedInsuranceValue = 1500;
+
+            var dto = new HomeController.InsuranceDto
+            {
+                ProductId = 3,
+            };
+            var sut = new HomeController();
+
+            var result = sut.CalculateInsurance(dto);
+
+            Assert.Equal(
+                expected: expectedInsuranceValue,
+                actual: result.InsuranceValue
+            );
+        }
     }
 
     public class ControllerTestFixture: IDisposable
@@ -70,14 +108,28 @@ namespace Insurance.Tests
                         "products/{id:int}",
                         context =>
                         {
-                            int productId = int.Parse((string) context.Request.RouteValues["id"]);
+                            var salesPrice = 750;
+                            var productTypeId = 1;
+                            int productId = int.Parse((string)context.Request.RouteValues["id"]);
+
+                            if (productId == 2)
+                            {
+                                salesPrice = 400;
+                                productTypeId = 2;
+                            }
+                            else if (productId == 3)
+                            {
+                                salesPrice = 800;
+                                productTypeId = 2;
+                            }
+
                             var product = new
                                           {
                                               id = productId,
                                               name = "Test Product",
-                                              productTypeId = 1,
-                                              salesPrice = 750
-                                          };
+                                              productTypeId,
+                                              salesPrice
+                            };
                             return context.Response.WriteAsync(JsonConvert.SerializeObject(product));
                         }
                     );
@@ -91,6 +143,12 @@ namespace Insurance.Tests
                                                    {
                                                        id = 1,
                                                        name = "Test type",
+                                                       canBeInsured = true
+                                                   },
+                                                   new
+                                                   {
+                                                       id = 2,
+                                                       name = "Laptops",
                                                        canBeInsured = true
                                                    }
                                                };
