@@ -8,8 +8,6 @@ namespace Insurance.Tests.Domain
         readonly ProductType normalProductTypeInsurable = new ProductType("Mouses", true);
         readonly ProductType dangerousProductTypeInsurable = new ProductType("Laptops", true);
         readonly ProductType dangerousProductTypeNonInsurable = new ProductType("Smartphones", false);
-        readonly int id = 1;
-        readonly string name = "any name";
 
         [Theory()]
         [InlineData(0)]

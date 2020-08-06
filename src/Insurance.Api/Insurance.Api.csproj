@@ -11,6 +11,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Insurance.Domain\Insurance.Domain.csproj" />
     <ProjectReference Include="..\..\Insurance.Infrastructor\Insurance.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\Shared\Insurance.Shared.csproj" />
+    <ProjectReference Include="..\..\Insurance.Shared\Insurance.Shared.csproj" />
   </ItemGroup>
 </Project>
