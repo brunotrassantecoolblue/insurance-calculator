@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using System.Linq;
 
-namespace Insurance.Domain
+namespace Insurance.Domain.Entities
 {
     public class ProductType
     {

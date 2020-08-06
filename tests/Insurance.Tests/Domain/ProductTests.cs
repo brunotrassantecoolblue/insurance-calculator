@@ -1,7 +1,4 @@
-﻿using Insurance.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Insurance.Domain.Entities;
 using Xunit;
 
 namespace Insurance.Tests.Domain
@@ -22,7 +19,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 0;
 
-            var sut = new Product(id, name, normalProductTypeInsurable, salesPrice);
+            var sut = new Product(normalProductTypeInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,
@@ -38,7 +35,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 1000;
 
-            var sut = new Product(id, name, normalProductTypeInsurable, salesPrice);
+            var sut = new Product(normalProductTypeInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,
@@ -54,7 +51,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 2000;
 
-            var sut = new Product(id, name, normalProductTypeInsurable, salesPrice);
+            var sut = new Product(normalProductTypeInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,
@@ -70,7 +67,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 500;
 
-            var sut = new Product(id, name, dangerousProductTypeInsurable, salesPrice);
+            var sut = new Product(dangerousProductTypeInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,
@@ -86,7 +83,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 1500;
 
-            var sut = new Product(id, name, dangerousProductTypeInsurable, salesPrice);
+            var sut = new Product(dangerousProductTypeInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,
@@ -102,7 +99,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 2500;
 
-            var sut = new Product(id, name, dangerousProductTypeInsurable, salesPrice);
+            var sut = new Product(dangerousProductTypeInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,
@@ -119,7 +116,7 @@ namespace Insurance.Tests.Domain
         {
             const float expectedInsuranceValue = 0;
 
-            var sut = new Product(id, name, dangerousProductTypeNonInsurable, salesPrice);
+            var sut = new Product(dangerousProductTypeNonInsurable, salesPrice);
 
             Assert.Equal(
                 expected: expectedInsuranceValue,

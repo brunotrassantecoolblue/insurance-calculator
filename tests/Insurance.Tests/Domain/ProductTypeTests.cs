@@ -1,4 +1,5 @@
 ﻿using Insurance.Domain;
+using Insurance.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

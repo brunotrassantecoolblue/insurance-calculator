@@ -1,19 +1,13 @@
-﻿using System;
-
-namespace Insurance.Domain
+﻿namespace Insurance.Domain.Entities
 {
     public class Product
     {
-        public int Id { get; private set; }
-        public string Name { get; private set; }
         public ProductType Type { get; private set; }
         public float SalesPrice { get; private set; }
         public float InsuranceValue { get; private set; }
 
-        public Product(int id, string name, ProductType type, float salesPrice)
+        public Product(ProductType type, float salesPrice)
         {
-            Id = id;
-            Name = name;
             Type = type;
             SalesPrice = salesPrice;
             CalculateInsurance();
