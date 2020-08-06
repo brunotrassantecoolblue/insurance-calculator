@@ -7,4 +7,10 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Insurance.Domain\Insurance.Domain.csproj" />
+    <ProjectReference Include="..\..\Insurance.Infrastructor\Insurance.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Shared\Insurance.Shared.csproj" />
+  </ItemGroup>
 </Project>

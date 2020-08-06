@@ -10,13 +10,20 @@ namespace Insurance.Infrastructure
     public class ProductAPIClient : IProductRepository
     {
         public string BaseAddress { get; private set; }
+
+        public ProductAPIClient()
+        {
+            //TODO: Get from config
+            BaseAddress = "http://localhost:5002";
+        }
+
         private readonly string productTypesResource = "/product_types";
         private readonly string productsResource = "/products";
 
 
         public async Task<ProductTypeModel> GetProductType(int productTypeId)
         {
-            //cash types?
+            //TODO: cash types?
             using (HttpClient client = new HttpClient { BaseAddress = new Uri(BaseAddress) })
             {
                 var httpResponse = await client.GetAsync($"{productTypesResource}/{productTypeId}");
@@ -35,7 +42,7 @@ namespace Insurance.Infrastructure
 
         public async Task<ProductModel> GetProduct(int productId)
         {
-            //cash types?
+            //TODO: cash types?
             using (HttpClient client = new HttpClient { BaseAddress = new Uri(BaseAddress) })
             {
                 var httpResponse = await client.GetAsync($"{productsResource}/{productId}");
