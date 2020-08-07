@@ -10,6 +10,7 @@
         {
             Type = type;
             SalesPrice = salesPrice;
+            InsuranceValue = 0;
             CalculateInsurance();
         }
 

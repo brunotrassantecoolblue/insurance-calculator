@@ -17,20 +17,15 @@ namespace Insurance.Api.Controllers
             _productHandler = productHandler;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/insurance/product")]
         public async Task<ActionResult> CalculateInsurance(CalculateInsurance command)
         {
             var commandResult = await _productHandler.Handle(command);
 
             if (commandResult.Success == false)
-            {
-                //TODO: Log here! 
+                return StatusCode(500, commandResult.Message);
 
-                var response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
-                response.Content = new StringContent(commandResult.Message);
-                //return Task.FromResult(response);
-            }
             else if (commandResult.Data == null)
                 return BadRequest(commandResult.Message);
 
