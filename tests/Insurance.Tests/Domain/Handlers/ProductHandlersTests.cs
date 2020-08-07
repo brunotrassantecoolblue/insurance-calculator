@@ -9,7 +9,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Insurance.Tests.Domain
+namespace Insurance.Tests.Domain.Handlers
 {
     public class ProductHandlersTests
     {
