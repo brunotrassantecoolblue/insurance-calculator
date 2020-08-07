@@ -1,7 +1,7 @@
 ﻿using Insurance.Domain.Entities;
 using Xunit;
 
-namespace Insurance.Tests.Domain
+namespace Insurance.Tests.Domain.Entities
 {
     public class ProductTests
     {

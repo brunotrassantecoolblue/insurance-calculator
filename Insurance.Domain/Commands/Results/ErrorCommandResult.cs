@@ -7,11 +7,11 @@ namespace Insurance.Domain.Commands.Results
 {
     public class ErrorCommandResult : CommandResult
     {
-        public ErrorCommandResult(string message, IEnumerable notifications)
+        public ErrorCommandResult(string message, Exception exception)
         {
             Success = false;
             Message = message;
-            Data = notifications;
+            Data = exception;
         }
     }
 }

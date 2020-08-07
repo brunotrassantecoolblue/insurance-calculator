@@ -1,11 +1,7 @@
-﻿using Insurance.Domain;
-using Insurance.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Insurance.Domain.Entities;
 using Xunit;
 
-namespace Insurance.Tests.Domain
+namespace Insurance.Tests.Domain.Entities
 {
     public class ProductTypeTests
     {
