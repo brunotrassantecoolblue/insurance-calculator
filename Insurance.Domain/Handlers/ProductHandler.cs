@@ -26,7 +26,7 @@ namespace Insurance.Domain.Handlers
                 if (productModel == null)
                     return new NotFoundCommandResult($"Product with Id {command.ProductId} could not be found");
 
-                var productTypeModel = await _repository.GetProductType(productModel.Id);
+                var productTypeModel = await _repository.GetProductType(productModel.ProductTypeId);
 
                 if (productTypeModel == null)
                     return new NotFoundCommandResult($"Relationship between product Id {command.ProductId} and its type seems to be wrong");
